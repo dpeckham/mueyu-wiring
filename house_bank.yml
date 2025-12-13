@@ -111,11 +111,39 @@ connectors:
     pinlabels: [clutch1, clutch2, 12+, 12-]
     notes: Autopilot Ram Port
 
-  DPDT_SWITCH:
+  TPDT_SWITCH:
     type: Switch
-    subtype: DPDT
-    pinlabels: [topline+_in, topline+_out, topline-_in, topline-_out, topline_data_in, topline_data_out]
+    subtype: TPDT
+    pinlabels: [topline+_in, topline+_port, topline+_stbd, topline-_in, topline-_port, topline-_stbd, topline_data_in, topline_data_port, topline_data_stbd]
     notes: NKE Topline Switch
+
+  NKE_BOX_STARBOARD:
+    type: Connector
+    subtype: NKE Electronics
+    pinlabels: [12+, 12-, topline+_2, topline-_2, topline_data_2, topline+_3, topline-_3, topline_data_3, topline+_4, topline-_4, topline_data_4, NMEA-, NMEA+]
+    notes: NKE Box Starboard
+
+  NKE_GYROPILOT_STARBOARD:
+    type: Load
+    subtype: Autopilot
+    pinlabels: ['+', '-', clutch1, clutch2, topline+, topline-, topline_data, ram_12+, ram_12-]
+    notes: NKE Gyropilot Starboard
+
+  FUSE_RAM_STARBOARD_1:
+    type: Fuse
+    pinlabels: [In, Out]
+    notes: Ram Fuse Starboard 1
+
+  FUSE_RAM_STARBOARD_2:
+    type: Fuse
+    pinlabels: [In, Out]
+    notes: Ram Fuse Starboard 2
+
+  AUTOPILOT_RAM_STARBOARD:
+    type: Connector
+    subtype: Hydraulic Ram
+    pinlabels: [clutch1, clutch2, 12+, 12-]
+    notes: Autopilot Ram Starboard
 
 cables:
   W1:
@@ -265,6 +293,62 @@ cables:
     colors: [WH, SR, BK, GN, YE]
     length: 3
 
+  W22:
+    wirecount: 5
+    gauge: 22 AWG
+    type: Marine Wire
+    colors: [WH, SR, BK, GN, YE]
+    length: 3
+
+  W23:
+    wirecount: 5
+    gauge: 22 AWG
+    type: Marine Wire
+    colors: [WH, SR, BK, GN, YE]
+    length: 3
+
+  W24:
+    wirecount: 2
+    gauge: 14 AWG
+    type: Marine Wire
+    colors: [RD, BK]
+    length: 3
+
+  W25:
+    wirecount: 1
+    gauge: 16 AWG
+    type: Marine Wire
+    colors: [WH]
+    length: 1
+
+  W26:
+    wirecount: 1
+    gauge: 16 AWG
+    type: Marine Wire
+    colors: [WH]
+    length: 1
+
+  W27:
+    wirecount: 1
+    gauge: 16 AWG
+    type: Marine Wire
+    colors: [WH]
+    length: 1
+
+  W28:
+    wirecount: 1
+    gauge: 16 AWG
+    type: Marine Wire
+    colors: [WH]
+    length: 1
+
+  W29:
+    wirecount: 2
+    gauge: 14 AWG
+    type: Marine Wire
+    colors: [RD, BK]
+    length: 2
+
 connections:
   -
     - BATT: [+]
@@ -405,27 +489,83 @@ connections:
   -
     - NKE_BOX_1: [topline+_4]
     - W20: [1]
-    - DPDT_SWITCH: [topline+_in]
+    - TPDT_SWITCH: [topline+_in]
   -
     - NKE_BOX_1: [topline-_4]
     - W20: [2]
-    - DPDT_SWITCH: [topline-_in]
+    - TPDT_SWITCH: [topline-_in]
   -
     - NKE_BOX_1: [topline_data_4]
     - W20: [3]
-    - DPDT_SWITCH: [topline_data_in]
+    - TPDT_SWITCH: [topline_data_in]
   -
-    - DPDT_SWITCH: [topline+_out]
+    - TPDT_SWITCH: [topline+_port]
     - W21: [1]
     - NKE_BOX_2: [topline+_3]
   -
-    - DPDT_SWITCH: [topline-_out]
+    - TPDT_SWITCH: [topline-_port]
     - W21: [2]
     - NKE_BOX_2: [topline-_3]
   -
-    - DPDT_SWITCH: [topline_data_out]
+    - TPDT_SWITCH: [topline_data_port]
     - W21: [3]
     - NKE_BOX_2: [topline_data_3]
+  -
+    - TPDT_SWITCH: [topline+_stbd]
+    - W22: [1]
+    - NKE_BOX_STARBOARD: [topline+_3]
+  -
+    - TPDT_SWITCH: [topline-_stbd]
+    - W22: [2]
+    - NKE_BOX_STARBOARD: [topline-_3]
+  -
+    - TPDT_SWITCH: [topline_data_stbd]
+    - W22: [3]
+    - NKE_BOX_STARBOARD: [topline_data_3]
+  -
+    - NKE_BOX_STARBOARD: [topline+_2]
+    - W23: [1]
+    - NKE_GYROPILOT_STARBOARD: [topline+]
+  -
+    - NKE_BOX_STARBOARD: [topline-_2]
+    - W23: [2]
+    - NKE_GYROPILOT_STARBOARD: [topline-]
+  -
+    - NKE_BOX_STARBOARD: [topline_data_2]
+    - W23: [3]
+    - NKE_GYROPILOT_STARBOARD: [topline_data]
+  -
+    - DP1: [C5+]
+    - W24: [1]
+    - NKE_GYROPILOT_STARBOARD: ['+']
+  -
+    - DP1_NEG_BUS: [C5-]
+    - W24: [2]
+    - NKE_GYROPILOT_STARBOARD: ['-']
+  -
+    - NKE_GYROPILOT_STARBOARD: [clutch1]
+    - W25: [1]
+    - FUSE_RAM_STARBOARD_1: [In]
+  -
+    - FUSE_RAM_STARBOARD_1: [Out]
+    - W26: [1]
+    - AUTOPILOT_RAM_STARBOARD: [clutch1]
+  -
+    - NKE_GYROPILOT_STARBOARD: [clutch2]
+    - W27: [1]
+    - FUSE_RAM_STARBOARD_2: [In]
+  -
+    - FUSE_RAM_STARBOARD_2: [Out]
+    - W28: [1]
+    - AUTOPILOT_RAM_STARBOARD: [clutch2]
+  -
+    - NKE_GYROPILOT_STARBOARD: [ram_12+]
+    - W29: [1]
+    - AUTOPILOT_RAM_STARBOARD: [12+]
+  -
+    - NKE_GYROPILOT_STARBOARD: [ram_12-]
+    - W29: [2]
+    - AUTOPILOT_RAM_STARBOARD: [12-]
 
 metadata:
   title: House Bank
