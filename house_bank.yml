@@ -1,9 +1,69 @@
 connectors:
-  BATT:
+  BATT1:
     type: Battery
     subtype: House Bank
-    pinlabels: [+, '-']
-    notes: 12V House Battery Bank
+    pinlabels: ['+', '-']
+    notes: House Battery 1
+
+  BATT2:
+    type: Battery
+    subtype: House Bank
+    pinlabels: ['+', '-']
+    notes: House Battery 2
+
+  BATT3:
+    type: Battery
+    subtype: House Bank
+    pinlabels: ['+', '-']
+    notes: House Battery 3
+
+  BATT_STARTER:
+    type: Battery
+    subtype: Starter
+    pinlabels: ['+', '-']
+    notes: Starter Battery
+
+  STARTER_BANK_SW:
+    type: Switch
+    subtype: SPST
+    pinlabels: [In, Out]
+    notes: Starter Bank Switch
+
+  STARTER_BUS:
+    type: Bus Bar
+    subtype: Positive
+    pinlabels: [BATT, SW, STARTER, ECHO]
+    notes: Starter Bus Bar
+
+  EMERGENCY_PARALLEL_SW:
+    type: Switch
+    subtype: SPST
+    pinlabels: [In, Out]
+    notes: Emergency Parallel Switch
+
+  STARTER:
+    type: Load
+    subtype: Engine Starter
+    pinlabels: ['+']
+    notes: Starter
+
+  ECHO_CHARGER:
+    type: Load
+    subtype: Battery Charger
+    pinlabels: [House+, Starter+, '-']
+    notes: Echo Charger
+
+  ALTERNATOR:
+    type: Load
+    subtype: Alternator
+    pinlabels: ['+']
+    notes: Alternator
+
+  FUSE_BATT:
+    type: Fuse
+    subtype: 500A
+    pinlabels: [In, Out]
+    notes: Battery Fuse 500A
 
   BAT_SW:
     type: Battery Switch
@@ -14,15 +74,15 @@ connectors:
   POS_BUS:
     type: Bus Bar
     subtype: Positive Distribution
-    pincount: 4
-    pinlabels: [In, DP1, DP2, Spare1]
+    pincount: 5
+    pinlabels: [In, DP1, DP2, ECHO, ALT]
     notes: Positive bus bar
 
   NEG_BUS:
     type: Bus Bar
     subtype: Negative Distribution
-    pincount: 8
-    pinlabels: [In, DP1, DP2, Spare1, Spare2, Spare3, Spare4, Spare5]
+    pincount: 10
+    pinlabels: [BATT1, BATT2, BATT3, STARTER, DP1, DP2, ECHO, Spare1, Spare2, Spare3]
     notes: Negative bus bar
 
   DP1:
@@ -151,7 +211,7 @@ cables:
     gauge: 2 AWG
     type: Battery Cable
     colors: [RD]
-    length: 3
+    length: 1
 
   W2:
     wirecount: 1
@@ -165,6 +225,111 @@ cables:
     gauge: 2 AWG
     type: Battery Cable
     colors: [BK]
+    length: 1
+
+  W30:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 1
+
+  W31:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 2
+
+  W32:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 1
+
+  W36:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [BK]
+    length: 1
+
+  W37:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [BK]
+    length: 1
+
+  W38:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 1
+
+  W39:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 1
+
+  W40:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 1
+
+  W41:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 1
+
+  W42:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [RD]
+    length: 1
+
+  W43:
+    wirecount: 1
+    gauge: 2 AWG
+    type: Battery Cable
+    colors: [BK]
+    length: 1
+
+  W44:
+    wirecount: 1
+    gauge: 14 AWG
+    type: Marine Wire
+    colors: [RD]
+    length: 2
+
+  W45:
+    wirecount: 1
+    gauge: 14 AWG
+    type: Marine Wire
+    colors: [RD]
+    length: 2
+
+  W46:
+    wirecount: 1
+    gauge: 14 AWG
+    type: Marine Wire
+    colors: [BK]
+    length: 2
+
+  W47:
+    wirecount: 1
+    gauge: 4 AWG
+    type: Battery Cable
+    colors: [RD]
     length: 3
 
   W4:
@@ -351,8 +516,60 @@ cables:
 
 connections:
   -
-    - BATT: [+]
+    - BATT1: ['+']
     - W1: [1]
+    - FUSE_BATT: [In]
+  -
+    - BATT2: ['+']
+    - W30: [1]
+    - FUSE_BATT: [In]
+  -
+    - BATT3: ['+']
+    - W32: [1]
+    - FUSE_BATT: [In]
+  -
+    - BATT_STARTER: ['+']
+    - W38: [1]
+    - STARTER_BANK_SW: [In]
+  -
+    - STARTER_BANK_SW: [Out]
+    - W42: [1]
+    - STARTER_BUS: [BATT]
+  -
+    - STARTER_BUS: [SW]
+    - W40: [1]
+    - EMERGENCY_PARALLEL_SW: [In]
+  -
+    - EMERGENCY_PARALLEL_SW: [Out]
+    - W39: [1]
+    - FUSE_BATT: [In]
+  -
+    - STARTER_BUS: [STARTER]
+    - W41: [1]
+    - STARTER: ['+']
+  -
+    - BATT_STARTER: ['-']
+    - W43: [1]
+    - NEG_BUS: [STARTER]
+  -
+    - POS_BUS: [ECHO]
+    - W44: [1]
+    - ECHO_CHARGER: [House+]
+  -
+    - STARTER_BUS: [ECHO]
+    - W45: [1]
+    - ECHO_CHARGER: [Starter+]
+  -
+    - NEG_BUS: [ECHO]
+    - W46: [1]
+    - ECHO_CHARGER: ['-']
+  -
+    - ALTERNATOR: ['+']
+    - W47: [1]
+    - POS_BUS: [ALT]
+  -
+    - FUSE_BATT: [Out]
+    - W31: [1]
     - BAT_SW: [Common]
   -
     - BAT_SW: [House]
@@ -363,9 +580,17 @@ connections:
     - W5: [1]
     - DP1: ['+']
   -
-    - BATT: ['-']
+    - BATT1: ['-']
     - W3: [1]
-    - NEG_BUS: [In]
+    - NEG_BUS: [BATT1]
+  -
+    - BATT2: ['-']
+    - W36: [1]
+    - NEG_BUS: [BATT2]
+  -
+    - BATT3: ['-']
+    - W37: [1]
+    - NEG_BUS: [BATT3]
   -
     - POS_BUS: [DP2]
     - W4: [1]
