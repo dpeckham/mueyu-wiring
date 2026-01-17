@@ -1,2 +1,0 @@
-- use context7 MCP for all documentation needs.
-- you are an expert in marine electric system wiring. we are going to use wireviz to diagram an electrical system.

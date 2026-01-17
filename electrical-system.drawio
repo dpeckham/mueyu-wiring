@@ -1,0 +1,642 @@
+<mxfile host="app.diagrams.net" modified="2024-01-17T00:00:00.000Z" agent="Claude" version="22.1.0">
+  <diagram name="Electrical System - Detailed Wiring" id="electrical-system">
+    <mxGraphModel dx="2000" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3400" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ==================== ALL EDGES (WIRES) FIRST - drawn underneath ==================== -->
+
+        <!-- Battery to Bus Connections -->
+        <mxCell id="bat1-pos" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bat1" target="house-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bat2-pos" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bat2" target="house-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bat3-pos" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bat3" target="house-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bat1-neg" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bat1" target="house-bus-neg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bat2-neg" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bat2" target="house-bus-neg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bat3-neg" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bat3" target="house-bus-neg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Positive Circuit Connections -->
+        <mxCell id="bus-fuse" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bus-pos" target="house-fuse">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fuse-switch" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-fuse" target="house-switch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="switch-shunt" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-switch" target="house-shunt-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Negative Circuit Connections -->
+        <mxCell id="bus-shunt-neg" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-bus-neg" target="house-shunt-neg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="shunt-smartshunt" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-shunt-neg" target="smartshunt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="smartshunt-negdist" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="smartshunt" target="neg-dist-bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Starter Connections -->
+        <mxCell id="stbat-pos" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="starter-bat" target="starter-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stbat-neg" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="starter-bat" target="starter-bus-neg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stbus-fuse" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="starter-bus-pos" target="starter-fuse">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stbus-switch" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="starter-bus-pos" target="starter-switch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Parallel/Echo/Engine Connections -->
+        <mxCell id="shunt-parallel" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-shunt-pos" target="parallel-switch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="parallel-echo" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="parallel-switch" target="echo-charger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="parallel-starter" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="parallel-switch" target="starter-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="echo-starter" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="echo-charger" target="starter-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fuse-engine" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="starter-fuse" target="engine-starter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Charging Connections -->
+        <mxCell id="alt-reg" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#82b366;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="alternator" target="electromaax">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="reg-bus" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="electromaax" target="house-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="solar1-bus" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="solar1" target="house-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="solar2-bus" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="solar2" target="house-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hydro-bus" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="hydro" target="house-bus-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Panel Power Connections -->
+        <mxCell id="shunt-panel1" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-shunt-pos" target="panel1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="shunt-panel2" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="house-shunt-pos" target="panel2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="panel1-gnd" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="neg-dist-bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="panel2-gnd" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="neg-dist-bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 1 Load Connections -->
+        <mxCell id="p1-inst" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="instruments-block">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-radar" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="radar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-port" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="port-light">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-stbd" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="stbd-light">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-stern" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="stern-light">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-compass" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="compass-light">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-steaming" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="steaming-light">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-anchor" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel1" target="anchor-light">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Panel 2 Load Connections -->
+        <mxCell id="p2-ap1" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="autopilot1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-ap2" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="autopilot2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-galley" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="galley-dome">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-fwd" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="fwd-dome">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-portrd" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="port-reading">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-stbdrd" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="stbd-reading">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-portusb" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="port-usb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-stbdusb" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="stbd-usb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-bilge" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="bilge-pump">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-ballast" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="panel2" target="ballast-pump">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Instrument Connections -->
+        <mxCell id="inst-nkereg" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="instruments-block" target="nke-regulator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nkereg-box1" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="nke-regulator" target="nke-box1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inst-vhf" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="instruments-block" target="vhf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inst-pc" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="instruments-block" target="pc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inst-gps" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="instruments-block" target="gps">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inst-ais" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="instruments-block" target="ais">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inst-n2k" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CC0000;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="instruments-block" target="n2k-device">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NKE Topline Bus Connections -->
+        <mxCell id="topline-box1" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="nke-topline-bus" target="nke1-multi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="topline-box2" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="nke-topline-bus" target="nke2-multi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="topline-box3" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="nke-topline-bus" target="nke3-radio">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NMEA Box to NMEA0183 -->
+        <mxCell id="nmea-box-conn" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#0000FF;dashed=1;edgeStyle=orthogonalEdgeStyle" edge="1" parent="1" source="nke3-nmea" target="nmea0183-bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ALL VERTICES (OBJECTS) SECOND - drawn on top ==================== -->
+
+        <!-- Title -->
+        <mxCell id="title" value="MUEYU ELECTRICAL SYSTEM - DETAILED WIRING DIAGRAM" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="800" y="20" width="800" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Section Labels -->
+        <mxCell id="power-section" value="POWER DISTRIBUTION" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#CC0000" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data-section" value="DATA NETWORKS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#0000FF" vertex="1" parent="1">
+          <mxGeometry x="2400" y="70" width="250" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- HOUSE BANK -->
+        <mxCell id="house-section-label" value="HOUSE BANK (315Ah)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- House Batteries -->
+        <mxCell id="house-bat1" value="Battery 1&#xa;105Ah FLA" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="house-bat2" value="Battery 2&#xa;105Ah FLA" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="house-bat3" value="Battery 3&#xa;105Ah FLA" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="40" y="290" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- House Bus Bars -->
+        <mxCell id="house-bus-pos" value="House (+) Bus" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="house-bus-neg" value="House (-) Bus" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;fontColor=#FFFFFF;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="160" y="260" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Circuit Flow Notes -->
+        <mxCell id="pos-circuit-label" value="(+) Circuit: Bus → Fuse → Switch → Shunt → Loads" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=2;spacingLeft=5" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="280" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="neg-circuit-label" value="(-) Circuit: Bus → Shunt → SmartShunt → Neg Dist Bus → Loads" style="text;html=1;strokeColor=none;fillColor=#f5f5f5;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=2;spacingLeft=5" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="340" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- House Positive Circuit Components -->
+        <mxCell id="house-fuse" value="300A Fuse" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="70" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="house-switch" value="House ON/OFF" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="80" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="house-shunt-pos" value="Shunt (+)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="200" width="70" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- House Negative Circuit Components -->
+        <mxCell id="house-shunt-neg" value="Shunt (-)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="300" y="260" width="70" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="smartshunt" value="Victron&#xa;SmartShunt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="255" width="80" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="neg-dist-bus" value="Neg Dist Bus" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;fontColor=#FFFFFF;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="510" y="260" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- STARTER BANK -->
+        <mxCell id="starter-section-label" value="STARTER BANK (105Ah)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#d79b00" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="starter-bat" value="Starter Battery&#xa;105Ah AGM" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="40" y="470" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="starter-bus-pos" value="Starter (+) Bus" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="160" y="470" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="starter-bus-neg" value="Starter (-) Bus" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;fontColor=#FFFFFF;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="160" y="520" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="starter-fuse" value="300A Fuse" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="300" y="470" width="70" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="starter-switch" value="Starter ON/OFF" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="400" y="470" width="80" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Parallel Switch, Echo Charger, Engine -->
+        <mxCell id="parallel-switch" value="Parallel Switch" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="90" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="echo-charger" value="Xantrex Echo&#xa;Charger" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="400" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="engine-starter" value="Engine Starter" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="510" y="470" width="80" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- CHARGING SOURCES -->
+        <mxCell id="charging-label" value="CHARGING SOURCES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="640" y="110" width="180" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="alternator" value="Alternator" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="145" width="80" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="electromaax" value="Electromaax&#xa;Regulator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="200" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="solar1" value="SmartSolar 1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="750" y="145" width="80" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="solar2" value="SmartSolar 2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="750" y="190" width="80" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="hydro" value="Watt&amp;Sea&#xa;Cruise 600" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="860" y="165" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- DISTRIBUTION PANELS -->
+        <mxCell id="dist-label" value="DISTRIBUTION" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#d79b00" vertex="1" parent="1">
+          <mxGeometry x="1000" y="110" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="panel1" value="Breaker Panel 1&#xa;(8 circuits)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="150" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="panel2" value="Breaker Panel 2&#xa;(8 circuits)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="220" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- PANEL 1 LOADS -->
+        <mxCell id="loads1-label" value="PANEL 1 LOADS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="1180" y="110" width="120" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="instruments-block" value="Instruments&#xa;Fuse Block" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1180" y="145" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="radar" value="Radar" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1280" y="145" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="port-light" value="Port" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1180" y="195" width="45" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="stbd-light" value="Stbd" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1230" y="195" width="45" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="stern-light" value="Stern" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1280" y="195" width="45" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="compass-light" value="Compass" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1330" y="195" width="50" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="steaming-light" value="Steaming" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1180" y="230" width="55" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="anchor-light" value="Anchor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1240" y="230" width="55" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- PANEL 2 LOADS -->
+        <mxCell id="loads2-label" value="PANEL 2 LOADS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="1180" y="270" width="120" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="autopilot1" value="Autopilot 1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1180" y="300" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="autopilot2" value="Autopilot 2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1260" y="300" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="galley-dome" value="Galley" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1180" y="340" width="45" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="fwd-dome" value="Fwd" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1230" y="340" width="40" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="port-reading" value="Port Rd" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1275" y="340" width="50" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="stbd-reading" value="Stbd Rd" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1330" y="340" width="50" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="port-usb" value="Port USB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1180" y="375" width="55" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="stbd-usb" value="Stbd USB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1240" y="375" width="55" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="bilge-pump" value="Bilge Pump" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1180" y="410" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ballast-pump" value="Ballast Pump" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1260" y="410" width="75" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- INSTRUMENT DEVICES -->
+        <mxCell id="inst-devices-label" value="INSTRUMENT DEVICES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1420" y="110" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke-regulator" value="NKE 12v Reg" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1420" y="145" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nke-box1" value="NKE Box 1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1420" y="185" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vhf" value="VHF" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1500" y="145" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pc" value="PC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1560" y="145" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gps" value="GPS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1500" y="185" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ais" value="AIS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1560" y="185" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n2k-device" value="N2K" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="1620" y="165" width="50" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- DATA BUSSES SECTION -->
+        <mxCell id="data-busses-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0ff;strokeColor=#6c8ebf;strokeWidth=2;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="2400" y="110" width="500" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="data-label" value="DATA BUSSES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#0000FF" vertex="1" parent="1">
+          <mxGeometry x="2420" y="120" width="150" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Wireless -->
+        <mxCell id="wireless-label" value="WIRELESS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="2420" y="150" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bluetooth-bus" value="Bluetooth" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="2420" y="175" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bt-devices" value="SmartShunt&#xa;iPhone, Tablet" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="2510" y="170" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wifi-bus" value="Wifi" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="2420" y="215" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wifi-devices" value="PC, iPhone, Tablet" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="2510" y="215" width="100" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Charging Data -->
+        <mxCell id="charging-data-label" value="CHARGING DATA" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="2620" y="150" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="charging-data-bus" value="Charging Data" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="2620" y="175" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cd-devices" value="Electromaax&#xa;Shunt(+), Shunt(-)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="2720" y="170" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="charging-data2-bus" value="Charging Data 2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="2620" y="215" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cd2-devices" value="SmartShunt&#xa;Starter Battery" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="2720" y="210" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Navigation Data -->
+        <mxCell id="nav-data-label" value="NAVIGATION DATA" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#0000FF" vertex="1" parent="1">
+          <mxGeometry x="2420" y="260" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="nmea0183-bus" value="NMEA0183" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="2420" y="285" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nmea-devices" value="AIS, PC, NMEA Box" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#0000FF" vertex="1" parent="1">
+          <mxGeometry x="2510" y="285" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n2k-bus" value="N2K" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="2420" y="325" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n2k-devices" value="AIS, PC, GPS&#xa;Electromaax" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#00AA00" vertex="1" parent="1">
+          <mxGeometry x="2510" y="320" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- NKE Topline -->
+        <mxCell id="nke-data-label" value="NKE TOPLINE" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="2420" y="370" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="nke-topline-bus" value="NKE Topline" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="2420" y="395" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nke-bus-devices" value="NKE Box 1, 2, 3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="2510" y="395" width="90" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- NKE DEVICES SECTION -->
+        <mxCell id="nke-devices-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff5f5;strokeColor=#b85450;strokeWidth=2;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="2400" y="480" width="500" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="nke-section-label" value="NKE TOPLINE DEVICES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="2420" y="490" width="200" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- NKE Box 1 -->
+        <mxCell id="nke1-label" value="Box 1 (Port)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="2420" y="520" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="nke1-multi" value="Multigraphic" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2420" y="545" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke1-gyro" value="GyroGraphic" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2500" y="545" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke1-pilot" value="Gyropilot" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2420" y="575" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke1-compass" value="Compass" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2500" y="575" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- NKE Box 2 -->
+        <mxCell id="nke2-label" value="Box 2 (Stbd)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="2600" y="520" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="nke2-multi" value="Multigraphic" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2600" y="545" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke2-gyro" value="GyroGraphic" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2680" y="545" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke2-pilot" value="Gyropilot" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2600" y="575" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke2-compass" value="Compass" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2680" y="575" width="70" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- NKE Box 3 -->
+        <mxCell id="nke3-label" value="Box 3 (Sensors)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="2420" y="620" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="nke3-radio" value="Radio Receiver" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2420" y="645" width="85" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke3-nmea" value="NMEA Box" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2515" y="645" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke3-wind" value="NKE Wind" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2420" y="680" width="65" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke3-speed" value="Boat Speed" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2495" y="680" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="nke3-depth" value="Depth" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="2575" y="680" width="55" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- LEGEND -->
+        <mxCell id="legend-box" value="LEGEND" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="350" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-power-section" value="POWER:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="30" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-pos-wire" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CC0000" edge="1" parent="legend-box">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="65" y="40" as="sourcePoint" /><mxPoint x="115" y="40" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="leg-pos-label" value="12V Positive" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10" vertex="1" parent="legend-box">
+          <mxGeometry x="120" y="30" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-neg-wire" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#000000" edge="1" parent="legend-box">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="200" y="40" as="sourcePoint" /><mxPoint x="250" y="40" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="leg-neg-label" value="Ground (-)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10" vertex="1" parent="legend-box">
+          <mxGeometry x="255" y="30" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-data-section" value="DATA:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="55" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-nmea-wire" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#0000FF;dashed=1" edge="1" parent="legend-box">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="10" y="90" as="sourcePoint" /><mxPoint x="60" y="90" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="leg-nmea-label" value="NMEA0183" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10" vertex="1" parent="legend-box">
+          <mxGeometry x="65" y="80" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-n2k-wire" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#00AA00;dashed=1" edge="1" parent="legend-box">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="140" y="90" as="sourcePoint" /><mxPoint x="190" y="90" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="leg-n2k-label" value="N2K" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10" vertex="1" parent="legend-box">
+          <mxGeometry x="195" y="80" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-nke-wire" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1" edge="1" parent="legend-box">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="240" y="90" as="sourcePoint" /><mxPoint x="290" y="90" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="leg-nke-label" value="NKE" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10" vertex="1" parent="legend-box">
+          <mxGeometry x="295" y="80" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-bt-wire" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#9673a6;dashed=1" edge="1" parent="legend-box">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="10" y="120" as="sourcePoint" /><mxPoint x="60" y="120" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="leg-bt-label" value="Bluetooth/Wifi" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10" vertex="1" parent="legend-box">
+          <mxGeometry x="65" y="110" width="85" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-cd-wire" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#d6b656;dashed=1" edge="1" parent="legend-box">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="155" y="120" as="sourcePoint" /><mxPoint x="205" y="120" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="leg-cd-label" value="Charging Data" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10" vertex="1" parent="legend-box">
+          <mxGeometry x="210" y="110" width="85" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-components" value="COMPONENTS:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="140" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-bat" value="Battery" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=6;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="160" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-bus" value="Bus" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9" vertex="1" parent="legend-box">
+          <mxGeometry x="70" y="165" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-switch" value="Switch" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9" vertex="1" parent="legend-box">
+          <mxGeometry x="120" y="165" width="45" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-fuse" value="Fuse" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9" vertex="1" parent="legend-box">
+          <mxGeometry x="175" y="165" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-shunt" value="Shunt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9" vertex="1" parent="legend-box">
+          <mxGeometry x="225" y="165" width="45" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-load" value="Load" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9" vertex="1" parent="legend-box">
+          <mxGeometry x="280" y="165" width="40" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
