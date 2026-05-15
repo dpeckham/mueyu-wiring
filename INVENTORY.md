@@ -67,6 +67,7 @@
   - Starboard USB
 - Bilge Pump
 - Ballast Pump
+- Engine Room
 
 ### Instruments
 - Additional 8 position fuse block
